@@ -1,4 +1,5 @@
-﻿using cheque.Services.NumberConverterService;
+﻿using cheque.Interfaces;
+using cheque.Services.NumberConverterService;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel;
 
@@ -15,7 +16,7 @@ namespace cheque.Controllers
         }
 
         [Description("Converts a decimal number to words in the format of a cheque")]
-        [HttpPost]
+        [HttpGet]
         public Task<string> ConvertNumbersToWords(decimal number)
         {
             if (number <= 0)

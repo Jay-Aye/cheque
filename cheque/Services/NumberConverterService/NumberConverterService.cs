@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using cheque.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace cheque.Services.NumberConverterService
 {
-    public interface INumberConverterService
-    {
-        public Task<string> ConvertToWords(decimal number);
-    }
     public class NumberConverterService : INumberConverterService
     {
         private readonly ILogger<NumberConverterService> _logger;
@@ -45,20 +42,20 @@ namespace cheque.Services.NumberConverterService
             var log10 = (int)(Math.Log10(dollars) / 3);
 
             var workingDollar = dollars;
-            var runCount = 0;
+            var timesOfThousands = 0;
 
             while (log10 >= 0)
             {
                 var dollarToConvert = workingDollar % 1000;
                 if (dollarToConvert != 0)
                 {
-                    result = thousands[runCount] + " " + result;
+                    result = thousands[timesOfThousands] + " " + result;
                     result = ConvertThreeDigitNumberToWords(dollarToConvert) + " " + result;
                 }
 
                 workingDollar = workingDollar / 1000;
                 log10--;
-                runCount++;
+                timesOfThousands++;
                 result = result.Trim();
             }
 
