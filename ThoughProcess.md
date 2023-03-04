@@ -1,6 +1,4 @@
-
 # Thought Process
-
 
 ## The Task
 
@@ -22,9 +20,9 @@ We require a small C# REST API that can automatically write cheques for us. It m
 - [x] Create NumberConverter Service (maybe think of a better name).  Just the shell at this stage so I can setup the unit tests
 - [x] Create unit tests with use cases - Push to branch to show TDD
 - [x] Identify unit test cases
-- [ ] Create the logic for the NumberConverter Service - Push to branch
-- [ ] Create controller and endpoint for consumption - Push to branch
-- [ ] Create error handling for use cases - Push to branch
+- [x] Create the logic for the NumberConverter Service - Push to branch
+- [x] Create controller and endpoint for consumption - Push to branch
+- [x] Create error handling for use cases - Push to branch
 - [ ] Update readme with instructions on use and other relevant information
 
 ## Error Handling
