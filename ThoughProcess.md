@@ -1,3 +1,4 @@
+
 # Thought Process
 
 
@@ -20,6 +21,7 @@ We require a small C# REST API that can automatically write cheques for us. It m
 - [x] Setup unit test project
 - [x] Create NumberConverter Service (maybe think of a better name).  Just the shell at this stage so I can setup the unit tests
 - [x] Create unit tests with use cases - Push to branch to show TDD
+- [x] Identify unit test cases
 - [ ] Create the logic for the NumberConverter Service - Push to branch
 - [ ] Create controller and endpoint for consumption - Push to branch
 - [ ] Create error handling for use cases - Push to branch
@@ -28,4 +30,15 @@ We require a small C# REST API that can automatically write cheques for us. It m
 ## Error Handling
 Unsure exactly which way is best to handle this at first glance.  I will hold off making any decisions until the NumberConverter Service is complete and I have more information.
 
-## 
+## Unit Test Cases
+- When there is only one cent or one dollar, return CENT or DOLLAR instead of CENTS or DOLLARS
+- When rounding cents, make sure they are rounded down to the closest cent
+- When handling large numbers, make sure they process correctly (Millions, Billions, Trillions)
+
+## Solution
+The end result of ONE **BILLION** TWO ***HUNDRED*** THIRTY-FOUR **MILLION** FIVE ***HUNDRED*** SIXTY-SEVEN **THOUSAND** EIGHT ***HUNDRED*** NINETY-ONE DOLLARS (1234567891) has a recursive structure to it.
+- 1,234,567,891
+
+3 digits will always be a type of hundred so I can use that to build the amount of thousands (million, billion, trillion)
+The numbers 1 - 19 are unique and I can use an array and array position for handling conversions.
+The multiples of 10 are unique and i can use a seperate array for handling converstions.
